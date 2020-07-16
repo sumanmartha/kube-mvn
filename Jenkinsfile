@@ -94,7 +94,7 @@ stages{
             chmod +x $BASE_DIR/k8s/process_files.sh
 
             cd $BASE_DIR/k8s/
-            ./process_files.sh "$GCLOUD_PROJECT_ID" "${IMAGE_NAME}" "${DOCKER_PROJECT_NAMESPACE}/${IMAGE_NAME}:${RELEASE_TAG}" "./${IMAGE_NAME}/" ${TIMESTAMP}
+            ./process_files.sh "${IMAGE_NAME}" "${DOCKER_PROJECT_NAMESPACE}/${IMAGE_NAME}:${RELEASE_TAG}" "./${IMAGE_NAME}/" ${TIMESTAMP}
 
             cd $BASE_DIR/k8s/${IMAGE_NAME}/.
             kubectl apply --force=true --all=true --record=true -f $BASE_DIR/k8s/$IMAGE_NAME/
