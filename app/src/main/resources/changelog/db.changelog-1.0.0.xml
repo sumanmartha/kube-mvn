@@ -4,7 +4,7 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
                    http://www.liquibase.org/xml/ns/dbchangelog-ext
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet id="1" author="amitthk">
+    <changeSet id="1" author="sumanm">
         <sql>
             CREATE TABLE IF NOT EXISTS BLOGPOST(
             ID SERIAL NOT NULL PRIMARY KEY,
@@ -15,7 +15,7 @@
             LAST_UPDATED TIMESTAMP);
         </sql>
     </changeSet>
-    <changeSet id="02" author="amitthk">
+    <changeSet id="02" author="sumanm">
         <sql>
             ALTER TABLE BLOGPOST ALTER COLUMN LAST_UPDATED SET DEFAULT now();
         </sql>

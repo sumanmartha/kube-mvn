@@ -1,1 +1,1 @@
-# kubejencdp-mvn
+# kube-mvn
