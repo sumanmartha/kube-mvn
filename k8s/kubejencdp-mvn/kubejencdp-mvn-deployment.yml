@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: __APP_NAME__-ctr
+      app: __APP_NAME__
   replicas: 1
   template:
     metadata:
