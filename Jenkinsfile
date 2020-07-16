@@ -108,7 +108,7 @@ stages{
 
 post {
     always {
-        echo "Build# ${env.BUILD_NUMBER} - Job: ${env.JOB_NUMBER} status is: ${currentBuild.currentResult}"
+        echo "Build# ${env.BUILD_NUMBER} - Job: status is: ${currentBuild.currentResult}"
     }
 }
 }
