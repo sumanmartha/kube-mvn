@@ -6,8 +6,9 @@ metadata:
   name: __APP_NAME__-svc
 spec:
   ports:
-  - port: 80
+  - port: 8080
     targetPort: 8080
+    nodePort: 30003
     name: http
   selector:
     app: __APP_NAME__
