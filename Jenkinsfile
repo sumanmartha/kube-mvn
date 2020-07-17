@@ -61,7 +61,9 @@ stages{
         env.RELEASE_TAG = getEnvVar('RELEASE_TAG')
         env.DOCKER_PROJECT_NAMESPACE = getEnvVar('DOCKER_PROJECT_NAMESPACE')
         env.DOCKER_IMAGE_TAG= "${DOCKER_REGISTRY_URL}/${DOCKER_PROJECT_NAMESPACE}/${APP_NAME}:${RELEASE_TAG}"
-        env.JENKINS_DOCKER_CREDENTIALS_ID = getEnvVar('JENKINS_DOCKER_CREDENTIALS_ID')        
+        env.JENKINS_DOCKER_CREDENTIALS_ID = getEnvVar('JENKINS_DOCKER_CREDENTIALS_ID')  
+        env.JENKINS_KUBERNETES_CREDENTIALS_ID = getEnvVar('JENKINS_KUBERNETES_CREDENTIALS_ID')   
+        env.JENKINS_KUBERNETES_URL = getEnvVar('JENKINS_KUBERNETES_URL')     
 
         }
 
@@ -91,7 +93,7 @@ stages{
     }
     stage('Deploy'){
         steps{
-        withKubeConfig([credentialsId: 'KUBERNETES_SECRET', serverUrl: 'https://10.56.112.207:6443']) {
+        withKubeConfig([credentialsId: "${JENKINS_KUBERNETES_CREDENTIALS_ID}", serverUrl: "${JENKINS_KUBERNETES_URL}"]) {
         sh """            
             chmod +x $BASE_DIR/k8s/process_files.sh
 
