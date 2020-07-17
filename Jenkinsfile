@@ -91,6 +91,7 @@ stages{
     }
     stage('Deploy'){
         steps{
+        withKubeConfig([credentialsId: 'KUBERNETES_SECRET', serverUrl: 'https://10.56.112.207:6443']) {
         sh """            
             chmod +x $BASE_DIR/k8s/process_files.sh
 
@@ -102,6 +103,7 @@ stages{
             kubectl rollout status --watch=true --v=8 -f $BASE_DIR/k8s/$IMAGE_NAME/$IMAGE_NAME-deployment.yml
 
             """
+        }
         }
     }
 }
